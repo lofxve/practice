@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    dtd约束文档的使用步骤:
+    1.把dtd约束文档复制到idea中,一般都和xml文档在同一个文件夹下
+    2.在每个dtd约束文档中都有一个以<!DOCTYPE开头的一行代码,复制到xml文档中
+        <!DOCTYPE beans SYSTEM "bean.dtd">
+        a.<!DOCTYPE:dtd约束文档的固定声明格式
+        b.beans:dtd约束文档约束根元素必须的叫beans
+        c.SYSTEM:系统的意思,dtd约束文档来源于本地的操作系统
+            D:\Work_idea\EE144\day15\02_dtd\bean.dtd
+        d."bean.dtd":dtd文档的路径,和xml文档在同一个文件夹下,使用相对路径
+    3.根据dtd约束文档的要求,写出根元素
+    4.在根元素中,写<出现提示,根据提示写出其他的元素和属性
+        在元素中写<没有提示了,说明只能写文本了
+-->
+<!--        定义元素语法：<!ELEMENT 元素名 元素描述>
+        !ELEMENT:固定格式
+        元素名：自定义
+        元素描述包括：符号和数据类型
+        常见符号：
+        ?:代表元素只能出现0次或者1次
+        +:代表元素至少出现1次  1次或者多次
+        *(?和+):  代表元素可以出现任意次  0次,1次,多次
+        ():一组元素  (a,b)* aaabbb (a|b)* ababba
+        |:选择关系 在多个中选择一个  张三|李四
+        ,:顺序关系  a,b,c 元素书写顺序只能先写a,在写b,最后写c
+        常见类型：#PCDATA 表示内容是文本，不能是子标签-->
+<!DOCTYPE beans SYSTEM "D:\itheima\lofxve\javaee148\day15\resources\dtd\beans.dtd">
+<!--        一共包含了5部分内容:
+        a. !DOCTYPE:dtd约束文档声明的固定格式
+        b. Beans:根源元素的名称
+        c. PUBLIC:公共,dtd约束文档来源于互联网
+        d. "-//SPRING//DTD BEAN 2.0//EN":dtd约束文档的名称,一般由框架提供
+        e. "http://www.springframework.org/dtd/spring-beans-2.0.dtd">:dtd约束文档在互联网上的位置-->
+<beans>
+    <bean id="Main" className="com.lofxve.Main">
+<!--        属性的语法：（attribute）
+        <!ATTLIST 元素名
+        属性名 属性类型 约束
+        属性名 属性类型 约束
+        ...
+        >
+        !ATTLIST:属性声明的固定写法
+        元素名：属性必须是给元素添加，所有必须先确定元素名
+        属性名：自定义
+        属性类型：ID、CDATA…
+        ID : ID类型的属性用来标识元素的唯一性(不能重复,必须有,只能以字母开头)
+        CDATA：文本类型,字符串
+        约束：
+        #REQUIRED：说明属性是必须的；required
+        #IMPLIED：说明属性是可选的；implied
+        #FIXED:代表属性为固定值，实现方式：book_info CDATA #FIXED "固定值"
+        出版社 (清华|北大|传智播客)-->
+        <property name="" value="" type="" age="18" sex="男">
+
+        </property>
+    </bean>
+    <import resource=""></import>
+</beans>

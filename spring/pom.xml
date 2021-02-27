@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lofxve</groupId>
+    <artifactId>Spring</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>day01_01_ioc</module>
+        <module>day01_02_springioc</module>
+        <module>day01_03_ioc_xml_dbutils</module>
+        <module>day02_01_ioc_anno</module>
+        <module>day02_02_aop</module>
+        <module>day03_01_aop_jdk</module>
+        <module>day03_02_aop_jdbc_anno</module>
+        <module>day03_03_aop_jdbc_xml</module>
+        <module>day04_01_aop_transaction_jdbc_anno</module>
+        <module>day04_02_aop_transaction_jdbc_xml</module>
+        <module>day04_03_mvc</module>
+        <module>vue-case</module>
+        <module>day06_ssm</module>
+        <module>mybatis</module>
+    </modules>
+
+</project>

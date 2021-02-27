@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="001" className="cn.itcast.demo.User">
+        <property name="user" value="jack">文本1</property>
+        <property name="user" value="rose">文本2</property>
+    </bean>
+    1
+    <bean id="002" className="cn.itcast.demo.Admin">
+        <property name="user" value="admin">文本3</property>
+        <property name="user" value="write">文本4</property>
+    </bean>
+</beans>

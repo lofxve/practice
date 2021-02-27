@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.itcast.cn/bean">
+    <import resource=""/>
+    <bean id="" className="">
+<!--        自己闭合的元素，不能包含标签体-->
+        <property name="" value=""></property>
+        singleton   </bean>
+</beans>

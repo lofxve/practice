@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 1.当前服务的名称-->
+    <dubbo:application name="dubbo_provider"></dubbo:application>
+
+    <!-- 2.连接zookeeper注册中心地址-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
+
+    <!-- 3.指定rpc的具体通信协议和端口-->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+
+    <!-- 4.开启业务层包扫描
+            1.扫描所有带@service注解的类交给ioc容器
+            2.通过dubbo对外暴露服务
+    -->
+    <dubbo:annotation package="com.lofxve.dubbo.com.lofxve.dubbo.service"></dubbo:annotation>
+</beans>

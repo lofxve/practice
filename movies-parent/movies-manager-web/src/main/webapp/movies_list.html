@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="/css/pintuer.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/pintuer.js"></script>
+    <script src="/js/vuejs-2.5.16.js"></script>
+    <script src="/js/axios-0.18.0.js"></script>
+
+
+</head>
+<body>
+<div class="panel admin-panel" id="moviesListDiv">
+    <div class="panel-head"><strong class="icon-reorder"> 影视列表</strong> <a href="" style="float:right; display:none;">添加字段</a>
+    </div>
+    <div class="padding border-bottom">
+        <form>
+            <ul class="search" style="padding-left:10px;">
+                <li><a class="button border-main icon-plus-square-o" href="/movies_add.html"> 添加影视</a></li>
+                <li>搜索：</li>
+                <li>
+                    <select name="cid" class="input" style="width:200px; line-height:17px;" v-model="cid">
+                        <option value="">请选择分类</option>
+                        <option value="0">特色的</option>
+                        <option value="1">高观看率</option>
+                        <option value="2">高评分</option>
+                        <option value="3">最新上映</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" placeholder="请输入搜索关键字" name="keyword" class="input"
+                           style="width:250px; line-height:17px;display:inline-block" v-model="keyword"/>
+                    <a class="button border-main icon-search" @click="findByPage()"> 搜索</a></li>
+            </ul>
+        </form>
+    </div>
+    <table class="table table-hover text-center">
+        <tr>
+            <th width="5%">选择</th>
+            <th width="5%">排序</th>
+            <th>图片</th>
+            <th width="10%">导演</th>
+            <th>影视名称</th>
+            <th>分类名称</th>
+            <th width="10%">上映时间</th>
+            <th width="310">操作</th>
+        </tr>
+
+        <tr v-for="(movies,index) in pageInfo.list">
+            <td style="text-align:left; padding-left:10px;"><input type="checkbox"  name="ids" :value="movies.id" v-model="ids" /></td>
+            <td style="text-align:left; padding-left:20px;">{{index+1}}</td>
+            <td width="10%"><img :src="movies.picPath" alt="" width="70" height="50"/></td>
+            <td>{{movies.director}}</td>
+            <td>{{movies.title}}</td>
+            <td v-if="movies.cid == 0">特色的</td>
+            <td v-else-if="movies.cid == 1">高观看率</td>
+            <td v-else-if="movies.cid == 2">高评分率</td>
+            <td v-else-if="movies.cid == 3">最新上映</td>
+            <td>
+                {{movies.showTime}}
+            </td>
+            <td>
+                <div class="button-group">
+                    <a class="button border-main" :href="'/movies_add.html?id='+movies.id"><span class="icon-edit"></span>修改</a>
+                    <a class="button border-red" href="javascript:void(0)" @click="deleteById(movies.id)">
+                        <span class="icon-trash-o"></span> 删除</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7" style="text-align:left;padding-left:20px;">
+                <a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" @click="deleteByIds()"> 批量删除</a>
+                <span>总记录数：{{pageInfo.total}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <div class="pagelist">
+                    <a @click="pageNum = 1" v-if="!pageInfo.isFirstPage">首页</a>
+                    <a @click="pageNum--" v-if="!pageInfo.isFirstPage">上一页</a>
+                    <a @click="pageNum = page" v-for="(page,index) in pageInfo.navigatepageNums" :class="pageInfo.pageNum == page?'current':''">{{page}}</a>
+                    <a @click="pageNum++" v-if="!pageInfo.isLastPage">下一页</a>
+                    <a @click="pageNum = pageInfo.pages" v-if="!pageInfo.isLastPage">末页</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    const app = new Vue({
+        el: '#moviesListDiv',
+        data: {
+            cid: "",
+            keyword: "",
+            pageNum: "1",
+            pageSize: "5",
+            ids:[],
+            pageInfo: {},
+        },
+        methods: {
+            deleteById(id){
+                axios.get("/movies/deleteById?id="+id).then(reps=>{
+                    this.findByPage();
+                    if (reps.data == "OK") {
+                        this.findByPage();
+                    }
+                })
+            },
+            deleteByIds(){
+                axios.get("/movies/deleteByIds?ids="+this.ids).then(reps=>{
+                    this.findByPage();
+                })
+            },
+            findByPage() {
+                axios.get("/movies/findByPage", {
+                    params: {
+                        cid: this.cid,
+                        keyword: this.keyword,
+                        pageNum: this.pageNum,
+                        pageSize: this.pageSize,
+                    }
+
+                }).then(reps => {
+                    this.pageInfo = reps.data;
+                })
+            }
+
+        },
+        watch: {
+            pageNum(){
+                this.findByPage();
+            }
+        },
+        created() {
+            this.findByPage();
+        },
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean)*>
+        <!ELEMENT bean (property)*>
+        <!ATTLIST bean
+                className CDATA #REQUIRED>
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                age CDATA #IMPLIED
+                name CDATA #IMPLIED>
+        ]>
+<beans>
+    <bean className="com.lofxve.Dome">
+        <property name="wzd">aaa</property>
+        <property age="18">bbb</property>
+    </bean>
+    <bean className="com.lofxve.Main">
+        <property name="fx">ccc</property>
+        <property age="18">bbb</property>
+    </bean>
+</beans>

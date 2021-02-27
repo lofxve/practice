@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <!-- spring的注解扫描,让@Controller和@RequestMapping生效-->
+    <context:component-scan base-package="com.lofxve.dubbo.controller" />
+    <!--注解驱动-->
+    <mvc:annotation-driven />
+
+    <!-- 1.当前服务的名称-->
+    <dubbo:application name="dubbo_consumer" />
+
+    <!-- 2.连接zookeeper注册中心地址-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+    <!-- 3.dubbo的注解扫描,创建service接口代理对象，实现RPC远程通信-->
+    <dubbo:annotation package="com.itheima.dubbo.controller" />
+</beans>

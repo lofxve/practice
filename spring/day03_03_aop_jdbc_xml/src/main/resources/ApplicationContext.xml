@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--注解扫描-->
+    <context:component-scan base-package="com.lofxve"/>
+
+    <!--激活切面自动代理-->
+    <aop:aspectj-autoproxy/>
+
+    <!--jdbc数据源-->
+    <bean id="druidDataSourc" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql:///spring"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="druidDataSourc"></property>
+    </bean>
+
+    <!--增强对象-->
+    <bean id="logger" class="com.lofxve.log.Logger"></bean>
+
+    <aop:config>
+        <!--目标对象中哪些方法是切入点-->
+        <aop:pointcut id="pt" expression="execution(* com.lofxve.service.impl.*.*(..))"/>
+
+        <!--配置切面-->
+        <aop:aspect ref="logger">
+
+            <!--前置通知(before) ：在切点运行之前执行-->
+            <aop:before method="beforeMethod" pointcut-ref="pt"/>
+
+            <!--异常通知(after-throwing)：在切点发生异常的时候执行-->
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pt"/>
+
+            <!--后置通知(after-returning)：在切点正常运行结束之后执行-->
+            <aop:after-returning method="afterReturning" pointcut-ref="pt"/>
+
+            <!--最终通知(after)：在切点的最终执行-->
+            <aop:after method="afterMethod" pointcut-ref="pt"/>
+
+        </aop:aspect>
+    </aop:config>
+</beans>

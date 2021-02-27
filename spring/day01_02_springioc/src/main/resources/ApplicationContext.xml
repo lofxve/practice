@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    在Spring中，对于bean支持五种作用范围：
+        - singleton(默认)    单例模式，即对象只创建一次, 然后一直存在
+        - prototype          多例模式，即每次获取bean(调用getBean方法的时候)的时候，IOC都给我们创建一个新对象
+        - request            web项目中，Spring创建一个Bean的对象，将对象存入到request域中
+        - session            web 项目中，Spring创建一个Bean 的对象，将对象存入到session域中
+        - globalSession      用于分布式web开发中，创建的实例绑定全局session对象-->
+
+    <!--    singleton单例对象在容器创建的时候创建，在容器销毁的时候销毁-->
+    <bean id="userDao" class="com.lofxve.dao.impl.UserDaoImpl" scope="singleton" init-method="init" destroy-method="des">
+    </bean>
+    <!--    prototype多例对象会在每次调用getBean的时候创建，对象的销毁是不受Spring控制，由对象所在现成的垃圾回收器负责回收-->
+    <bean id="userDao" class="com.lofxve.dao.impl.UserDaoImpl" scope="prototype" init-method="init" destroy-method="des">
+    </bean>
+
+    <!--    创建对象的三种方式
+        1. 直接使用new关键字创建
+        2. 使用静态工厂创建
+        3. 使用实例化工厂创建-->
+    <!-- 1. 直接使用new关键字创建-->
+    <bean id="book0" class="com.lofxve.beans.Book">
+        <!--依赖注入有两种方式，分别是使用构造函数和set方法-->
+        <constructor-arg name="name" value="水浒传"/>
+        <constructor-arg name="price" value="72.5"/>
+        <constructor-arg name="publish" ref="date"/>
+    </bean>
+    <bean id="date" class="java.util.Date"></bean>
+
+    <!--2. 使用静态工厂创建-->
+    <bean id="book1" class="com.lofxve.beans.BookFactory" factory-method="getBook1">
+
+    </bean>
+
+    <!--3. 使用实例化工厂创建-->
+    <bean id="bookFactory" class="com.lofxve.beans.BookFactory"></bean>
+    <bean id="book2" factory-bean="bookFactory" factory-method="getBook2"></bean>
+
+
+</beans>
