@@ -42,7 +42,7 @@ public class ReplaceSpace {
         int newIndex = newlength - 1;
 
 //        从后往前挪动
-        while (oldIndex >= 0 && oldlen <= newlength) {
+        while (oldIndex >= 0 && oldIndex <= newIndex) {
             char c = str.charAt(oldIndex);
             if (c == ' ') {
                 array[newIndex--] = '0';
@@ -59,6 +59,6 @@ public class ReplaceSpace {
 
     public static void main(String[] args) {
         String s = "We are happy.";
-        System.out.println(replaceSpace(s));
+        System.out.println(replaceSpace1(s));
     }
 }
