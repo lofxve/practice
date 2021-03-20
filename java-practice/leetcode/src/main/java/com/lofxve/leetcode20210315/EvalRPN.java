@@ -23,8 +23,8 @@ public class EvalRPN {
             if (isNumber(token)) {
                 stack.push(Integer.parseInt(token));
             } else {
-                Integer num1 = stack.pop();
                 Integer num2 = stack.pop();
+                Integer num1 = stack.pop();
                 switch (token) {
                     case "+":
                         stack.push(num1 + num2);
