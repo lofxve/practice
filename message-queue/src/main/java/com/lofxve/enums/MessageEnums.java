@@ -3,6 +3,8 @@ package com.lofxve.enums;
 import lombok.Getter;
 
 /**
+ * 消息类型枚举
+ *
  * @ClassName MessageEnums
  * @Author lofxve
  * @Date 2021/4/8 9:52
@@ -10,16 +12,15 @@ import lombok.Getter;
  */
 @Getter
 public enum MessageEnums {
-    OPERATION((short)1,"操作"),
-    EVENT((short)2, "事件"),
-    EXCEPTION((short)3, "异常"),
+    OPERATION(1, "操作"),
+    EVENT(2, "事件"),
+    EXCEPTION(3, "异常"),
     ;
-    private short code;
+    private Integer code;
     private String description;
 
-    MessageEnums(short code, String description) {
+    MessageEnums(Integer code, String description) {
         this.code = code;
         this.description = description;
     }
 }
-
