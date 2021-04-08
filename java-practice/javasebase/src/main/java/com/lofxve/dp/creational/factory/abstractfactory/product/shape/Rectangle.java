@@ -1,4 +1,6 @@
-package com.lofxve.dp.creational.factory.abstractfactory.product;
+package com.lofxve.dp.creational.factory.abstractfactory.product.shape;
+
+import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 
 /**
  * @ClassName Rectangle

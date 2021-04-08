@@ -1,4 +1,6 @@
-package com.lofxve.dp.creational.factory.simplefactory;
+package com.lofxve.dp.creational.factory.simplefactory.product;
+
+import com.lofxve.dp.creational.factory.simplefactory.product.Product;
 
 /**
  * @ClassName Computer

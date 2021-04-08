@@ -1,5 +1,8 @@
 package com.lofxve.dp.creational.factory.simplefactory;
 
+import com.lofxve.dp.creational.factory.simplefactory.factory.ProductFactory;
+import com.lofxve.dp.creational.factory.simplefactory.product.Product;
+
 /**
  * @ClassName SimpleFactoryMain
  * @Author lofxve

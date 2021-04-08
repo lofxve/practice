@@ -1,8 +1,8 @@
 package com.lofxve.dp.creational.factory.abstractfactory.factory;
 
-import com.lofxve.dp.creational.factory.abstractfactory.product.Circle;
+import com.lofxve.dp.creational.factory.abstractfactory.product.shape.Circle;
 import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
-import com.lofxve.dp.creational.factory.abstractfactory.product.Rectangle;
+import com.lofxve.dp.creational.factory.abstractfactory.product.shape.Rectangle;
 import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 
 /**
