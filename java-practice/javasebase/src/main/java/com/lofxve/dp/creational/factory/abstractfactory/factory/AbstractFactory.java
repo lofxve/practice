@@ -1,7 +1,7 @@
-package com.lofxve.dp.creational.factory.factorymethod.factory;
+package com.lofxve.dp.creational.factory.abstractfactory.factory;
 
-import com.lofxve.dp.creational.factory.factorymethod.product.Product;
-import com.lofxve.dp.creational.factory.factorymethod.product.Shape;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 
 /**
  * @ClassName AbstractFactory

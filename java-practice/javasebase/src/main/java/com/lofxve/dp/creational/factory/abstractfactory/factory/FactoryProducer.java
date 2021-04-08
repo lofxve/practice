@@ -1,4 +1,4 @@
-package com.lofxve.dp.creational.factory.factorymethod.factory;
+package com.lofxve.dp.creational.factory.abstractfactory.factory;
 
 /**
  * @ClassName FactoryProducer

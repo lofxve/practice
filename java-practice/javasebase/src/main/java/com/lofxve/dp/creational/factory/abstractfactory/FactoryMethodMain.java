@@ -1,9 +1,9 @@
-package com.lofxve.dp.creational.factory.factorymethod;
+package com.lofxve.dp.creational.factory.abstractfactory;
 
-import com.lofxve.dp.creational.factory.factorymethod.factory.AbstractFactory;
-import com.lofxve.dp.creational.factory.factorymethod.factory.FactoryProducer;
-import com.lofxve.dp.creational.factory.factorymethod.product.Product;
-import com.lofxve.dp.creational.factory.factorymethod.product.Shape;
+import com.lofxve.dp.creational.factory.abstractfactory.factory.AbstractFactory;
+import com.lofxve.dp.creational.factory.abstractfactory.factory.FactoryProducer;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 
 /**
  * @ClassName FactoryMethodMain

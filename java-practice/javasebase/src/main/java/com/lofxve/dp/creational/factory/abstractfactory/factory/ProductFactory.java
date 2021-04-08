@@ -1,9 +1,9 @@
-package com.lofxve.dp.creational.factory.factorymethod.factory;
+package com.lofxve.dp.creational.factory.abstractfactory.factory;
 
-import com.lofxve.dp.creational.factory.factorymethod.product.Product;
-import com.lofxve.dp.creational.factory.factorymethod.product.Shape;
-import com.lofxve.dp.creational.factory.factorymethod.product.product.Computer;
-import com.lofxve.dp.creational.factory.factorymethod.product.product.Phone;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
+import com.lofxve.dp.creational.factory.abstractfactory.product.product.Computer;
+import com.lofxve.dp.creational.factory.abstractfactory.product.product.Phone;
 
 /**
  * @ClassName ProductFactory

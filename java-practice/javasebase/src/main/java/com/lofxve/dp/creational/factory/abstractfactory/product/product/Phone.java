@@ -1,6 +1,6 @@
-package com.lofxve.dp.creational.factory.factorymethod.product.product;
+package com.lofxve.dp.creational.factory.abstractfactory.product.product;
 
-import com.lofxve.dp.creational.factory.factorymethod.product.Product;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
 
 /**
  * @ClassName Phone

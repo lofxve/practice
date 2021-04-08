@@ -1,9 +1,9 @@
-package com.lofxve.dp.creational.factory.factorymethod.factory;
+package com.lofxve.dp.creational.factory.abstractfactory.factory;
 
-import com.lofxve.dp.creational.factory.factorymethod.product.Circle;
-import com.lofxve.dp.creational.factory.factorymethod.product.Product;
-import com.lofxve.dp.creational.factory.factorymethod.product.Rectangle;
-import com.lofxve.dp.creational.factory.factorymethod.product.Shape;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Circle;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Rectangle;
+import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 
 /**
  * @ClassName ShapeFactory

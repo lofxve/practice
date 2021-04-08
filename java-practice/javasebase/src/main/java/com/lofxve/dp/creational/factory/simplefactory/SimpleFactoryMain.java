@@ -8,6 +8,7 @@ package com.lofxve.dp.creational.factory.simplefactory;
  */
 public class SimpleFactoryMain {
     public static void main(String[] args) {
+        // 使用工厂构造产品
         Product phone = ProductFactory.getProduct("phone");
         phone.fun();
         Product computer = ProductFactory.getProduct("computer");
