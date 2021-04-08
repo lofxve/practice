@@ -10,7 +10,13 @@ import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
  * @Version 1.0
  */
 public abstract class AbstractFactory {
+    private String name;
+
+    public AbstractFactory(String name) {
+        this.name = name;
+    }
+
     public abstract Shape getShape(String shape);
 
-    public  abstract Product getProduct(String shape);
+    public abstract Product getProduct(String shape);
 }

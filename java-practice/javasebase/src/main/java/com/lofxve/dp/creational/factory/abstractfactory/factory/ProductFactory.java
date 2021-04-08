@@ -4,6 +4,8 @@ import com.lofxve.dp.creational.factory.abstractfactory.product.Product;
 import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
 import com.lofxve.dp.creational.factory.abstractfactory.product.product.Computer;
 import com.lofxve.dp.creational.factory.abstractfactory.product.product.Phone;
+import com.lofxve.dp.creational.factory.abstractfactory.product.shape.Circle;
+import com.lofxve.dp.creational.factory.abstractfactory.product.shape.Rectangle;
 
 /**
  * @ClassName ProductFactory
@@ -12,8 +14,19 @@ import com.lofxve.dp.creational.factory.abstractfactory.product.product.Phone;
  * @Version 1.0
  */
 public class ProductFactory extends AbstractFactory {
+    public ProductFactory(String name) {
+        super(name);
+    }
+
     @Override
     public Shape getShape(String shape) {
+        if (shape == null) {
+            return null;
+        } else if ("rectangle".equals(shape)) {
+            return new Rectangle("tcl");
+        } else if ("circle".equals(shape)) {
+            return new Circle("tcl");
+        }
         return null;
     }
 
@@ -22,9 +35,9 @@ public class ProductFactory extends AbstractFactory {
         if (product == null) {
             return null;
         } else if ("phone".equals(product)) {
-            return new Phone();
+            return new Phone("tcl");
         } else if ("computer".equals(product)) {
-            return new Computer();
+            return new Computer("tcl");
         }
         return null;
     }

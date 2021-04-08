@@ -8,10 +8,12 @@ package com.lofxve.dp.creational.factory.abstractfactory.factory;
  */
 public class FactoryProducer {
     public static AbstractFactory getFactory(String choice) {
-        if (choice.equalsIgnoreCase("product")) {
-            return new ProductFactory();
-        } else if (choice.equalsIgnoreCase("shape")) {
-            return new ShapeFactory();
+        if (choice.equalsIgnoreCase("tcl")) {
+            // tcl
+            return new ProductFactory("tcl");
+        } else if (choice.equalsIgnoreCase("haier")) {
+            // haier
+            return new ShapeFactory("haier");
         }
         return null;
     }

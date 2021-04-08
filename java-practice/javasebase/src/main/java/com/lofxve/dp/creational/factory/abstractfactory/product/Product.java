@@ -6,6 +6,11 @@ package com.lofxve.dp.creational.factory.abstractfactory.product;
  * @Date 2021/4/8 10:17
  * @Version 1.0
  */
-public interface Product {
-    void fun();
+public abstract class Product {
+    public  String factory;
+
+    public Product(String factory) {
+        this.factory = factory;
+    }
+    public abstract void fun();
 }

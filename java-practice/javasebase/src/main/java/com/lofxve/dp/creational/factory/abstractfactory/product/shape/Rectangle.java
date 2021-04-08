@@ -8,9 +8,13 @@ import com.lofxve.dp.creational.factory.abstractfactory.product.Shape;
  * @Date 2021/4/8 10:55
  * @Version 1.0
  */
-public class Rectangle implements Shape {
+public class Rectangle extends Shape {
+    public Rectangle(String factory) {
+        super(factory);
+    }
+
     @Override
     public void draw() {
-        System.out.println("我画正方形");
+        System.out.println(this.factory + "正方形");
     }
 }
